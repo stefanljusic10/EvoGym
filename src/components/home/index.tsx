@@ -8,6 +8,7 @@ import SponsorForbes from "@/assets/SponsorForbes.png";
 import SponsorFortune from "@/assets/SponsorFortune.png";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { motion } from "framer-motion";
+import { headlineVariant } from "@/style/motions";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
@@ -32,10 +33,7 @@ const index = ({ setSelectedPage }: Props) => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.5 }}
-            variants={{
-                hidden: { opacity: 0, x: -100 },
-                visible: { opacity: 1, x: 0 }
-            }}
+            variants={headlineVariant}
           >
             <div className="relative">
               <div className="before:absolute before:-top-20 before:-left-20 before:z-[-1] md:before:content-evolvetext">
@@ -55,10 +53,7 @@ const index = ({ setSelectedPage }: Props) => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            variants={{
-                hidden: { opacity: 0, x: -100 },
-                visible: { opacity: 1, x: 0 }
-            }}
+            variants={headlineVariant}
           >
             <ActionButton setSelectedPage={setSelectedPage}>
               Join Now
