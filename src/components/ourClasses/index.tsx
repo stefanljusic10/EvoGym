@@ -8,8 +8,9 @@ import image5 from "@/assets/image5.png";
 import image6 from "@/assets/image6.png";
 import { motion } from "framer-motion";
 import { headlineVariant } from "@/style/motions";
-import { HeaderText } from "@/components/headerText";
+import HeaderText from "@/components/headerText";
 import { OurClassType } from "@/shared/types";
+import Card from '@/components/ourClasses/Card';
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
@@ -54,6 +55,15 @@ const index = ({ setSelectedPage }: Props) => {
       image: image6,
     },
   ];
+
+  const ourClassesCards = classes.map((item: OurClassType, index) => {
+    <Card 
+        key={`${item.name}-${index}`}
+        name={item.name}
+        description={item.description}
+        image={item.image}
+    />
+  })
 
   return (
     <section id="ourclasses" className="w-full bg-primary-100 py-40">
