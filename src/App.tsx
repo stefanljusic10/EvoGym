@@ -3,6 +3,7 @@ import Navbar from '@/components/navbar'
 import Home from '@/components/home'
 import Benefits from '@/components/benefits'
 import { SelectedPage } from '@/shared/types'
+import ContactUs from '@/components/contactUs'
 
 const App = () => {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(SelectedPage.Home)
@@ -37,6 +38,7 @@ const App = () => {
       <Benefits
         setSelectedPage={setSelectedPage} 
       />
+      <ContactUs setSelectedPage={setSelectedPage} />
     </div>
   )
 }
