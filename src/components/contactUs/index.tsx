@@ -10,17 +10,20 @@ type Props = {
 };
 
 const index = ({ setSelectedPage }: Props) => {
+  const inputStyles =
+    "w-full rounded-lg bg-primary-300 px-5 py-3 placeholder-white";
 
-    const inputStyles = 'w-full rounded-lg bg-primary-300 px-5 py-3 placeholder-white'
+  const {
+    register,
+    trigger,
+    formState: { errors },
+  } = useForm();
 
-    const { register, trigger, formState: { errors } } = useForm()
+  const submitForm = async (e: any) => {
+    const isValid = await trigger();
 
-    const submitForm = async (e: any) => {
-        const isValid = await trigger()
-        
-        if(!isValid)
-            e.preventDefault()
-    }
+    if (!isValid) e.preventDefault();
+  };
 
   return (
     <section id="contactus" className="mx-auto w-5/6 pt-24 pb-32">
@@ -56,27 +59,65 @@ const index = ({ setSelectedPage }: Props) => {
             variants={headlineInverseVariant}
           >
             <form
-                target='_blank'
-                onSubmit={(e) => submitForm(e)}
-                action="https://formsubmit.co/stefan.e4e5@email.com"
-                method='POST'
+              target="_blank"
+              onSubmit={(e) => submitForm(e)}
+              action="https://formsubmit.co/stefan.e4e5@email.com"
+              method="POST"
             >
-                <input 
-                    className={inputStyles}
-                    type='text'
-                    placeholder="NAME"
-                    {...register('name', {
-                        required: true,
-                        maxLength: 100,
-                    })}
-                    >
-                    {errors.name && (
-                        <p className="mt-1 text-primary-500">
-                            {errors.name.type === 'required' && 'This field is required.'}
-                            {errors.name.type === 'maxLength' && 'Max length is 100 characters.'}
-                        </p>
-                    )}
-                </input>
+              <input
+                className={inputStyles}
+                type="text"
+                placeholder="NAME"
+                {...register("name", {
+                  required: true,
+                  maxLength: 100,
+                })}
+              >
+                {errors.name && (
+                  <p className="mt-1 text-primary-500">
+                    {errors.name.type === "required" &&
+                      "This field is required."}
+                    {errors.name.type === "maxLength" &&
+                      "Max length is 100 characters."}
+                  </p>
+                )}
+              </input>
+              <input
+                className={inputStyles}
+                type="text"
+                placeholder="EMAIL"
+                {...register("email", {
+                  required: true,
+                  pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+                })}
+              >
+                {errors.email && (
+                  <p className="mt-1 text-primary-500">
+                    {errors.email.type === "required" &&
+                      "This field is required."}
+                    {errors.email.type === "pattern" &&
+                      "Invalid email address."}
+                  </p>
+                )}
+              </input>
+              <input
+                className={inputStyles}
+                type="text"
+                placeholder="MESSAGE"
+                {...register("message", {
+                  required: true,
+                  maxLength: 2000,
+                })}
+              >
+                {errors.message && (
+                  <p className="mt-1 text-primary-500">
+                    {errors.message.type === "required" &&
+                      "This field is required."}
+                    {errors.message.type === "maxLength" &&
+                      "Max length is 2000 characters."}
+                  </p>
+                )}
+              </input>
             </form>
           </motion.div>
         </div>
