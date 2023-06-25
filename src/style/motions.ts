@@ -3,6 +3,11 @@ export const headlineVariant = {
   visible: { opacity: 1, x: 0 },
 };
 
+export const headlineInverseVariant = {
+  hidden: { opacity: 0, y: 100 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export const benefitsContainer = {
   hidden: {},
   visible: {
