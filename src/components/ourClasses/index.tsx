@@ -1,68 +1,28 @@
 import { SelectedPage } from "@/shared/types";
-import image1 from "@/assets/image1.png";
-import image2 from "@/assets/image2.png";
-import image3 from "@/assets/image3.png";
-import image4 from "@/assets/image4.png";
-import image5 from "@/assets/image5.png";
-import image6 from "@/assets/image6.png";
 import { motion } from "framer-motion";
 import { headlineVariant } from "@/style/motions";
 import HeaderText from "@/components/headerText";
 import { OurClassType } from "@/shared/types";
-import Card from '@/components/ourClasses/Card';
+import Card from "@/components/ourClasses/Card";
+import { classes } from "@/data/data";
+import { ReactNode } from "react";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
 
 const index = ({ setSelectedPage }: Props) => {
-  const classes: OurClassType[] = [
-    {
-      name: "Weight Training Classes",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      image: image1,
-    },
-    {
-      name: "Yoga Classes",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      image: image2,
-    },
-    {
-      name: "Ab Core Classes",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      image: image3,
-    },
-    {
-      name: "Adventure Classes",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      image: image4,
-    },
-    {
-      name: "Fitness Classes",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      image: image5,
-    },
-    {
-      name: "Training Classes",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      image: image6,
-    },
-  ];
-
-  const ourClassesCards = classes.map((item: OurClassType, index) => {
-    <Card 
-        key={`${item.name}-${index}`}
-        name={item.name}
-        description={item.description}
-        image={item.image}
-    />
-  })
+  const ourClassesCards: ReactNode[] = classes.map((item: OurClassType, index) => {
+      return (
+        <Card
+          key={`${item.name}-${index}`}
+          name={item.name}
+          description={item.description}
+          image={item.image}
+        />
+      );
+    }
+  );
 
   return (
     <section id="ourclasses" className="w-full bg-primary-100 py-40">
@@ -88,7 +48,7 @@ const index = ({ setSelectedPage }: Props) => {
           </div>
         </motion.div>
         <div className="mt-10 h-[353px] w-full overflow-x-auto overflow-y-hidden">
-          <ul className="w-[2800px] whitespace-nowrap">{}</ul>
+          <ul className="w-[2800px] whitespace-nowrap">{ourClassesCards}</ul>
         </div>
       </motion.div>
     </section>

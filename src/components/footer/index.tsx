@@ -14,15 +14,15 @@ const index = () => {
           <p>&copy; Evogym All Rights Reserved.</p>
         </div>
         <div className="mt-16 basis-1/4 md:mt-0">
-            <h4 className="font-bold">Links</h4>
-            <p className="my-5">Lorem, ipsum dolor.</p>
-            <p className="my-5">Lorem ipsum dolor sit amet.</p>
-            <p>Lorem ipsum dolor sit.</p>
+          <h4 className="font-bold">Links</h4>
+          <p className="my-5">Lorem, ipsum dolor.</p>
+          <p className="my-5">Lorem ipsum dolor sit amet.</p>
+          <p>Lorem ipsum dolor sit.</p>
         </div>
         <div className="mt-16 basis-1/4 md:mt-0">
-            <h4 className="font-bold">Contact us</h4>
-            <p className="my-5">Lorem, ipsum dolor.</p>
-            <p>+(111)343-4343</p>
+          <h4 className="font-bold">Contact us</h4>
+          <p className="my-5">Lorem, ipsum dolor.</p>
+          <p>+(111)343-4343</p>
         </div>
         <div></div>
       </div>

@@ -22,12 +22,12 @@ const index = ({ setSelectedPage }: Props) => {
       id={SelectedPage.Home}
       className="gap-16 bg-gray-20 py-10 md:h-full md:pb-0"
     >
-      <motion.div 
+      <motion.div
         className="md:flex mx-auto w-5/6 items-center justify-center md:h-5/6"
         onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
       >
         <div className="z-10 mt-32 md:basis-3/5">
-          <motion.div 
+          <motion.div
             className="md:-mt-20"
             initial="hidden"
             whileInView="visible"
@@ -47,7 +47,7 @@ const index = ({ setSelectedPage }: Props) => {
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="mt-8 flex items-center gap-8"
             initial="hidden"
             whileInView="visible"
