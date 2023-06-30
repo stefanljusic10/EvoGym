@@ -1,5 +1,4 @@
 import { OurClassType } from "@/shared/types";
-import React from "react";
 
 type Props = OurClassType;
 
